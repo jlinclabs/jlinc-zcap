@@ -1,0 +1,44 @@
+{
+  "name": "@jlinc/zcap",
+  "version": "1.0.0",
+  "description": "Authorization using authorization capabilities",
+  "main": "./zcap",
+  "scripts": {
+    "test": "./scripts/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlinclabs/jlinc-zcap.git"
+  },
+  "author": "Victor Grey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jlinclabs/jlinc-zcap/issues"
+  },
+  "homepage": "https://github.com/jlinclabs/jlinc-zcap#readme",
+  "dependencies": {
+    "@jlinc/jwt": "^1.0.3",
+    "hjson": "^3.2.2",
+    "node-cache": "^5.1.2",
+    "sodium": "^3.0.2",
+    "urlsafe-base64": "^1.0.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-match-pattern": "^1.1.0",
+    "eslint": "^5.0.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.2",
+    "sinon-chai": "^3.3.0"
+  },
+  "directories": [
+    "zcap"
+  ],
+  "files": [
+    "zcap/index.js",
+    "zcap/createDelegable.js",
+    "zcap/createNonce.js"
+  ]
+}
