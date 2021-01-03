@@ -12,8 +12,11 @@ module.exports =  {
   version: require('../package.json').version,
   // Custom Errors
   JlincZcapError,
-  // Create a nonce
+  // Utilities
   createNonce: require('./createNonce'),
+  now: require('./now'),
+  createDelegableProof:  require('./createDelegableProof'),
+  makeDetachedSig:  require('./makeDetachedSig'),
 
   // Create a delegable ZCAP
   createDelegable: require('./createDelegable'),

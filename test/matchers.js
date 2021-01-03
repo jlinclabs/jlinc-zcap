@@ -23,8 +23,10 @@ global.console.json = function(...args) {
 
 const NONCE_REGEXP = /^[a-z0-9]{64}$/;
 const DID_REGEXP = /^did:jlinc:.+$/;
+const SIGNING_KEY_REGEXP = /^did:jlinc:[^#]+#signing$/;
 const JWT_REGEXP = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/;
-const UUID_V4_REGEXP = /^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/i;
+const DETACHED_SIG_REGEXP = /^[A-Za-z0-9-_]+\.\.[A-Za-z0-9-_]*$/;
+const UUID_V4_REGEXP = /^urn:uuid:[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$/i;
 const B64_REGEXP = /^[\w\-]+$/;
 
 _.mixin({
@@ -36,8 +38,16 @@ _.mixin({
     return DID_REGEXP.test(target);
   },
 
+  isSigningKey(target){
+    return SIGNING_KEY_REGEXP.test(target);
+  },
+
   isJWT(target){
     return JWT_REGEXP.test(target);
+  },
+
+  isDetachedSig(target){
+    return DETACHED_SIG_REGEXP.test(target);
   },
 
   isIAT(target){

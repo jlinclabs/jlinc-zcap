@@ -10,6 +10,9 @@ describe('zcap', function() {
       JlincZcapError: _.isFunction,
       createNonce: _.isFunction,
       createDelegable: _.isFunction,
+      now: _.isFunction,
+      createDelegableProof:  _.isFunction,
+      makeDetachedSig:  _.isFunction,
     });
   });
 });
