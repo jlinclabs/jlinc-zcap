@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jlinclabs/jlinc-zcap#readme",
   "dependencies": {
     "@jlinc/jwt": "^1.0.3",
+    "canonicalize": "^1.0.5",
     "hjson": "^3.2.2",
     "node-cache": "^5.1.2",
     "sodium": "^3.0.2",
