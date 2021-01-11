@@ -25,4 +25,11 @@
   context: ['https://w3id.org/security/v2']
   # additional contexts may be provided
   additionalContexts: []
+
+  ###############################################################
+  delegator: {
+      did: did:jlinc:iC2FSXaxH8HmK8sA0O6G3ZBVXpwb3IA_XfrYQDwnGE8
+      publicKey: iC2FSXaxH8HmK8sA0O6G3ZBVXpwb3IA_XfrYQDwnGE8
+      secretKey: 3_NaynBoz--j4HUxvLtD0RhPuryFYiloWNXNgnOPBaWILYVJdrEfweYrywDQ7obdkFVenBvcgD9d-thAPCcYTw
+  }
 }

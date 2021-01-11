@@ -8,11 +8,14 @@ describe('zcap', function() {
     expect(zcap).to.matchPattern({
       version,
       JlincZcapError: _.isFunction,
-      createNonce: _.isFunction,
-      createDelegable: _.isFunction,
       now: _.isFunction,
-      createDelegableProof:  _.isFunction,
+      createNonce: _.isFunction,
       makeDetachedSig:  _.isFunction,
+      createDelegable: _.isFunction,
+      delegate: _.isFunction,
+      createDelegableProof:  _.isFunction,
+      createDelegatedProof:  _.isFunction,
+
     });
   });
 });

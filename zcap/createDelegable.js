@@ -33,7 +33,8 @@ module.exports = function createDelegable(
   const capability = {};
   capability['@context'] = defaults.context.concat(defaults.additionalContexts);
   capability.id = 'urn:uuid:' + uuid.v4();
-  capability.parentCapability = parentCapability.target;
+  capability.target = parentCapability.target;
+  capability.parentCapabilityId = parentCapability.id;
   capability.invoker = invokerDid;
 
   const proof = this.createDelegableProof({ issuer: parentCapability.issuer, proofObj: capability });

@@ -16,9 +16,13 @@ module.exports =  {
   createNonce: require('./createNonce'),
   now: require('./now'),
   createDelegableProof:  require('./createDelegableProof'),
+  createDelegatedProof:  require('./createDelegatedProof'),
   makeDetachedSig:  require('./makeDetachedSig'),
 
   // Create a delegable ZCAP
   createDelegable: require('./createDelegable'),
+
+  // Delegate a ZCAP
+  delegate: require('./delegate'),
 
 };

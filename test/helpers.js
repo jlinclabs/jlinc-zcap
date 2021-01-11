@@ -21,7 +21,7 @@ function generateSigningKeys(){
 function generateActor(){
   const signingKeys = generateSigningKeys();
   const did = `did:jlinc:${signingKeys.signingPublicKey}`;
-  return { did, signingKeys };
+  return { did, publicKey: signingKeys.signingPublicKey, secretKey: signingKeys.signingPrivateKey };
 }
 
 function generateDID(){
