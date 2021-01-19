@@ -12,7 +12,8 @@ Prerequisites:
 * the organizations involved can persist ZCAPs and can revoke the authority by updating their internal records
 * each organization and individual involved has obtained a DID that can be resolved to obtain its status and signing public key
 
-###Usage
+### Usage
+
 ```js
 const zcap = require('jlinc-zcap');
 ```
@@ -59,6 +60,7 @@ const delegated = zcap.delegate( invoker, parentId, delegator, caveats );
 Invoke a delegated ZCAP
 
 ```js
+// TODO
 // Packages the delegated ZCAP object in a JWT signed by the delegator
 // for transmission to the target.
 ```
@@ -71,4 +73,10 @@ const verified = zcap.verifyZcapInvocation(zcap);
 // If a JWT, it unpacks and verifies the JWT submitted.
 // Then it verifies all signatures.
 // Returns the delegator and invoker DIDs and parentCapability ID so they can be verified as unrevoked.
+```
+
+Verify and cache a DID's keys
+
+```js
+// TODO
 ```
