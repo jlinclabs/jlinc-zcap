@@ -38,7 +38,7 @@ module.exports = function createDelegable(
   capability.invoker = invokerDid;
 
   const proof = this.createDelegableProof({ issuer: parentCapability.issuer, proofObj: capability });
-  capability.proof = proof;
+  capability.proof = [proof];
 
   return JSON.stringify(capability);
 };
