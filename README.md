@@ -66,8 +66,9 @@ Invoke a delegated ZCAP
 Verify an invocation
 
 ```js
-const verified = zcap.verifyZcap();
-// Unpacks and verifies the JWT submitted and then checks the validity of the
-// delegator and invoker DIDs and verifies both signatures.
-// Returns the delegator and invoker DIDs and parentCapability ID so that can be verified as unrevoked.
+const verified = zcap.verifyZcapInvocation(zcap);
+// The zcap argument may be an object, a JSON string or a JWT.
+// If a JWT, it unpacks and verifies the JWT submitted.
+// Then it verifies all signatures.
+// Returns the delegator and invoker DIDs and parentCapability ID so they can be verified as unrevoked.
 ```
