@@ -3,8 +3,6 @@
 const b64 = require('urlsafe-base64');
 const sodium = require('sodium').api;
 
-//const zcap = require('../');
-
 function generateUrl(){
   const port = Math.round(Math.random() * 10000);
   return `http://localhost:${port}`;
