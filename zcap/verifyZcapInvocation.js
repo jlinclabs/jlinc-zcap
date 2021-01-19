@@ -26,22 +26,29 @@ module.exports = function verifyZcapInvocation(input) {
     } else {
       throw new JlincZcapError('input must be an object, a JSON string, or a valid JWS');
     }
-  }
+  };
 
+  verified.parentCapabilityId = verified.zcap.parentCapabilityId;
   verified.id = verified.zcap.id;
   verified.invoker = verified.zcap.invoker;
   verified.caveats = verified.zcap.caveat;
 
   const {zcapObject, proof} = this.extractProof(verified.zcap);
-  for (let i=0; i<proof.length; i++) {
-    this.validateProof(zcapObject, proof[i]);
+  let validated = 0;
+
+  for (let i = 0; i < proof.length; i++) {
+    if (this.validateProof(zcapObject, proof[i])) {
+      validated++;
+    }
     if (proof[i].proofPurpose === 'capabilityDelegation') {
       verified.delegator = proof[i].verificationMethod.split('#')[0];
     } else if (proof[i].proofPurpose === 'capabilityInvocation') {
       verified.invoker = proof[i].verificationMethod.split('#')[0];
     }
   };
-  verified.verified = true;
-
+  if (validated === proof.length) {
+    verified.verified = true;
+  }
+  
   return verified;
 };
