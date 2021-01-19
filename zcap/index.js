@@ -18,11 +18,16 @@ module.exports =  {
   createDelegableProof:  require('./createDelegableProof'),
   createDelegatedProof:  require('./createDelegatedProof'),
   makeDetachedSig:  require('./makeDetachedSig'),
+  extractProof: require('./extractProof'),
+  validateProof: require('./validateProof'),
 
   // Create a delegable ZCAP
   createDelegable: require('./createDelegable'),
 
   // Delegate a ZCAP
   delegate: require('./delegate'),
+
+  // Verify a ZCAP invocation
+  verifyZcapInvocation: require('./verifyZcapInvocation'),
 
 };

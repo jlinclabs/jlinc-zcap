@@ -30,9 +30,6 @@ describe('delegate', function() {
       expect(result).to.be.a('string');
       const delegatedCapability = JSON.parse(result);
 
-      console.log('delegableCapability', JSON.parse(delegableCapability));
-      console.log('delegatedCapability', delegatedCapability);
-
       expect(delegatedCapability).to.be.an('object');
       expect(Object.keys(delegatedCapability)).to.have.lengthOf(5);
       expect(delegatedCapability['@context'][0]).to.equal('https://w3id.org/security/v2');
@@ -44,17 +41,16 @@ describe('delegate', function() {
       expect(delegatedCapability.proof).to.have.lengthOf(2);
 
       expect(delegatedCapability.proof[0].type).to.equal('Ed25519Signature2018');
+      expect(delegatedCapability.proof[0].publicKeyBase64).to.matchPattern(_.isB64);
       expect(delegatedCapability.proof[0].proofPurpose).to.equal('capabilityDelegation');
       expect(delegatedCapability.proof[0].verificationMethod).to.matchPattern(_.isSigningKey);
       expect(delegatedCapability.proof[0].jws).to.matchPattern(_.isDetachedSig);
 
       expect(delegatedCapability.proof[1].type).to.equal('Ed25519Signature2018');
+      expect(delegatedCapability.proof[0].publicKeyBase64).to.matchPattern(_.isB64);
       expect(delegatedCapability.proof[1].proofPurpose).to.equal('capabilityInvocation');
       expect(delegatedCapability.proof[1].verificationMethod).to.matchPattern(_.isSigningKey);
       expect(delegatedCapability.proof[1].jws).to.matchPattern(_.isDetachedSig);
-
-
-      //TODO: validate both proof jws
     });
   });
 

@@ -10,6 +10,7 @@ module.exports = function createDelegableProof({ issuer, proofObj }) {
   const detachedSig = this.makeDetachedSig(jws);
   const proof = {
     type: 'Ed25519Signature2018',
+    publicKeyBase64: issuer.publicKey,
     created: this.now,
     proofPurpose: 'capabilityDelegation',
     verificationMethod: issuer.did + '#signing',
