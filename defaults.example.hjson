@@ -10,6 +10,7 @@
   ###############################################################
   parentCapability: {
     # The parentCapability points to the target this capability will operate against
+    id: urn:uuid:0e15f5cd-d188-4c51-bf88-fe400eb6ebad
     target: https://tru.net/zcap-login
     issuer: {
       did: did:jlinc:mY5q2_qiJaaoQDMTdLj56tkP52iUxXg0pSb8u-S1iA0
