@@ -36,8 +36,8 @@ module.exports = function delegate(
 
   const capability = {};
   capability['@context'] = defaults.context.concat(defaults.additionalContexts);
+  capability.parentCapabilityId = defaults.parentCapability.id;
   capability.id = 'urn:uuid:' + uuid.v4();
-  capability.parentCapabilityId = parentId;
   capability.invoker = invoker.did;
   if (caveats !== undefined) {
     capability.caveat = caveats;

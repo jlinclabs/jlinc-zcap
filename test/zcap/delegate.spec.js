@@ -31,8 +31,9 @@ describe('delegate', function() {
       const delegatedCapability = JSON.parse(result);
 
       expect(delegatedCapability).to.be.an('object');
-      expect(Object.keys(delegatedCapability)).to.have.lengthOf(5);
+      expect(Object.keys(delegatedCapability)).to.have.lengthOf(6);
       expect(delegatedCapability['@context'][0]).to.equal('https://w3id.org/security/v2');
+      expect(delegatedCapability.parentCapabilityId).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.id).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.invoker).to.equal(invoker.did);
       expect(delegatedCapability.caveat).to.deep.include(caveats[0]);
