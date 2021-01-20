@@ -46,9 +46,9 @@ module.exports = function verifyZcapInvocation(input) {
       verified.invoker = proof[i].verificationMethod.split('#')[0];
     }
   };
-  if (validated === proof.length) {
+  if (verified.zcap.proof.length > 0 && validated === verified.zcap.proof.length) {
     verified.verified = true;
   }
-  
+
   return verified;
 };
