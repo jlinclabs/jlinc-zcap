@@ -25,7 +25,7 @@ describe('delegate', function() {
         }
       ];
 
-      const delegableCapability = zcap.createDelegable(delegator.did, parentCapability);
+      const delegableCapability = zcap.issueDelegable(delegator.did, parentCapability);
       const result = zcap.delegate(invoker, delegableCapability.parentCapabilityId, delegator, caveats);
       expect(result).to.be.a('string');
       const delegatedCapability = JSON.parse(result);

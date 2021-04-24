@@ -21,8 +21,8 @@ module.exports =  {
   extractProof: require('./extractProof'),
   validateProof: require('./validateProof'),
 
-  // Create a delegable ZCAP
-  createDelegable: require('./createDelegable'),
+  // Issue a delegable ZCAP
+  issueDelegable: require('./issueDelegable'),
 
   // Delegate a ZCAP
   delegate: require('./delegate'),

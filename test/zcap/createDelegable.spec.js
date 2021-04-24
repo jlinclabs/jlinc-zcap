@@ -6,7 +6,7 @@ const {
 } = require('../helpers');
 const zcap = require('../../');
 
-describe('createDelegable', function() {
+describe('issueDelegable', function() {
   context('when given a invoker DID and capability keys', function(){
     it('should return a delegable ZCAP', function(){
       const issuer = generateActor();
@@ -18,7 +18,7 @@ describe('createDelegable', function() {
         authorizationEndpoint: 'https://example.com/api/issue-zcap'
       };
 
-      const result = zcap.createDelegable(invoker.did, parentCapability);
+      const result = zcap.issueDelegable(invoker.did, parentCapability);
       expect(result).to.be.a('string');
       const delegableCapability = JSON.parse(result);
 

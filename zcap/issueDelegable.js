@@ -4,7 +4,7 @@ const fs = require('fs');
 const hjson = require('hjson');
 const uuid = require('uuid');
 
-module.exports = function createDelegable(
+module.exports = function issueDelegable(
   invokerDid, parentCapability
 ){
   /**

@@ -13,7 +13,7 @@ describe('zcap', function() {
       extractProof:  _.isFunction,
       validateProof:  _.isFunction,
       makeDetachedSig:  _.isFunction,
-      createDelegable: _.isFunction,
+      issueDelegable: _.isFunction,
       delegate: _.isFunction,
       createDelegableProof:  _.isFunction,
       createDelegatedProof:  _.isFunction,
