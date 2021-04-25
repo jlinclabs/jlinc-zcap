@@ -36,6 +36,9 @@ module.exports = function issueDelegable(
   capability.target = parentCapability.target;
   capability.parentCapabilityId = parentCapability.id;
   capability.invoker = invokerDid;
+  if (parentCapability.caveat) {
+    capability.caveat = parentCapability.caveat;
+  }
 
   const proof = this.createProof({ issuer: parentCapability.issuer, proofObj: capability });
   capability.proof = [proof];
