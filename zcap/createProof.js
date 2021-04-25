@@ -3,7 +3,7 @@
 const jlincJWT = require('@jlinc/jwt');
 JSON.canonicalize = require('canonicalize');
 
-module.exports = function createDelegableProof({ issuer, proofObj }) {
+module.exports = function createProof({ issuer, proofObj }) {
   const proofObject = Object.assign({}, proofObj);
   const canonicalizedProof = JSON.canonicalize(proofObject);
   const jws = jlincJWT.signEdDsa(JSON.parse(canonicalizedProof), issuer.publicKey, issuer.secretKey, issuer.did + '#signing');

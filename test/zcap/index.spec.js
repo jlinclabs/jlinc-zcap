@@ -15,7 +15,7 @@ describe('zcap', function() {
       makeDetachedSig:  _.isFunction,
       issueDelegable: _.isFunction,
       delegate: _.isFunction,
-      createDelegableProof:  _.isFunction,
+      createProof:  _.isFunction,
       createDelegatedProof:  _.isFunction,
       verifyZcapInvocation:  _.isFunction,
     });

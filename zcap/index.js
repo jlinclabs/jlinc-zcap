@@ -15,7 +15,7 @@ module.exports =  {
   // Utilities
   createNonce: require('./createNonce'),
   now: require('./now'),
-  createDelegableProof:  require('./createDelegableProof'),
+  createProof:  require('./createProof'),
   createDelegatedProof:  require('./createDelegatedProof'),
   makeDetachedSig:  require('./makeDetachedSig'),
   extractProof: require('./extractProof'),
