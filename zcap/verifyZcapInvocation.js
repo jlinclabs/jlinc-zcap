@@ -28,26 +28,40 @@ module.exports = function verifyZcapInvocation(input) {
     }
   };
 
-  verified.parentCapabilityId = verified.zcap.parentCapabilityId;
-  verified.id = verified.zcap.id;
   verified.invoker = verified.zcap.invoker;
-  verified.caveats = verified.zcap.caveat;
+  if (verified.zcap.parentCapabilityId) {
+    verified.parentCapabilityId = verified.zcap.parentCapabilityId;
+    verified.id = verified.zcap.id;
+  } else {
+    verified.parentCapabilityId = verified.zcap.id;
+  }
+  if (verified.zcap.caveat) {
+    verified.caveats = verified.zcap.caveat;
+  }
 
-  const {zcapObject, proof} = this.extractProof(verified.zcap);
-  let validated = 0;
+  if (Array.isArray(verified.zcap.proof)) {
+    const {zcapObject, proof} = this.extractProof(verified.zcap);
+    let validated = 0;
 
-  for (let i = 0; i < proof.length; i++) {
-    if (this.validateProof(zcapObject, proof[i])) {
-      validated++;
+    for (let i = 0; i < proof.length; i++) {
+      if (this.validateProof(zcapObject, proof[i])) {
+        validated++;
+      }
+      if (proof[i].proofPurpose === 'capabilityDelegation') {
+        verified.delegator = proof[i].verificationMethod.split('#')[0];
+      } else if (proof[i].proofPurpose === 'capabilityInvocation') {
+        verified.invoker = proof[i].verificationMethod.split('#')[0];
+      }
+    };
+    if (verified.zcap.proof.length > 0 && validated === verified.zcap.proof.length) {
+      verified.verified = true;
     }
-    if (proof[i].proofPurpose === 'capabilityDelegation') {
-      verified.delegator = proof[i].verificationMethod.split('#')[0];
-    } else if (proof[i].proofPurpose === 'capabilityInvocation') {
-      verified.invoker = proof[i].verificationMethod.split('#')[0];
+  } else {
+    const zcapObject = Object.assign({}, verified.zcap);
+    delete zcapObject.proof; // the zcap without the proof section
+    if (this.validateProof(zcapObject, verified.zcap.proof)) {
+      verified.verified = true;
     }
-  };
-  if (verified.zcap.proof.length > 0 && validated === verified.zcap.proof.length) {
-    verified.verified = true;
   }
 
   return verified;
