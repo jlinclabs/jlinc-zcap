@@ -23,11 +23,10 @@ describe('issueDelegable', function() {
       const delegableCapability = JSON.parse(result);
 
       expect(delegableCapability).to.be.an('object');
-      expect(Object.keys(delegableCapability)).to.have.lengthOf(6);
+      expect(Object.keys(delegableCapability)).to.have.lengthOf(5);
       expect(delegableCapability['@context'][0]).to.equal('https://w3id.org/security/v2');
       expect(delegableCapability.id).to.matchPattern(_.isUUIDv4);
       expect(delegableCapability.target).to.equal('https://example.com/zcap-login');
-      expect(delegableCapability.parentCapabilityId).to.equal(parentCapability.id);
       expect(delegableCapability.invoker).to.matchPattern(_.isDID);
       expect(delegableCapability.invoker).to.equal(invoker.did);
 

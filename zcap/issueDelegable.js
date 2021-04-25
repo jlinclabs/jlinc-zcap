@@ -34,7 +34,6 @@ module.exports = function issueDelegable(
   capability['@context'] = defaults.context.concat(defaults.additionalContexts);
   capability.id = 'urn:uuid:' + uuid.v4();
   capability.target = parentCapability.target;
-  capability.parentCapabilityId = parentCapability.id;
   capability.invoker = invokerDid;
   if (parentCapability.caveat) {
     capability.caveat = parentCapability.caveat;
