@@ -56,26 +56,28 @@ const delegated = zcap.delegate( invoker, parentId, delegator, caveats );
 
 ```
 
+Invoke a delegated ZCAP
+
+```js
+// TODO: zcap.invokeDelegated(invoker, delegated, action);
+// Packages an invocation in a JWT signed by the invoker
+// for transmission to the target to invoke an action.
+```
+
 Invoke a delegable ZCAP
 
 ```js
 const token = zcap.invokeDelegable(invoker, delegable, action);
+// Packages an invocation in a JWT signed by the invoker
+// for transmission to the target to invoke an action.
+//
 // In this case the invoker is an object containing the DID and keys of
 // the invoker (the entity being delegated the delegable authority).
 //
 // The delegable argument must be a valid delegable ZCAP.
 //
-// The target MUST ascertain that the action argument is allowed 
+// The target MUST ascertain that the action argument is allowed
 // by the delegable object's caveat array.
-```
-
-
-Invoke a delegated ZCAP
-
-```js
-// TODO
-// Packages the delegated ZCAP object in a JWT signed by the delegator
-// for transmission to the target.
 ```
 
 Verify an invocation
