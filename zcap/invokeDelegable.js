@@ -10,14 +10,16 @@ module.exports = function invokeDelegable(
 ){
   /**
   * @param {object} invoker
-  * @param {string} invoker.did reference to a JLINC DID signing key
+  * @param {string} invoker.did reference to a JLINC DID signing key.
   * @param {string} invoker.publicKey in Base64Url format.
   * @param {string} invoker.secretKey in Base64Url format.
-   *
-   * @param {object} delegable A valid delegable object
-   *
-   * @returns {string} A JWS
-   */
+  *
+  * @param {object} delegable A valid delegable object.
+  *
+  * @param {string} action An action being invoked.
+  *
+  * @returns {string} A JWS
+  */
 
   const {JlincZcapError} = this;
   if (delegable.invoker !== invoker.did) {
