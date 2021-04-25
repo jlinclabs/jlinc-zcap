@@ -17,6 +17,7 @@ describe('zcap', function() {
       delegate: _.isFunction,
       createProof:  _.isFunction,
       createDelegatedProof:  _.isFunction,
+      invokeDelegable:  _.isFunction,
       verifyZcapInvocation:  _.isFunction,
     });
   });

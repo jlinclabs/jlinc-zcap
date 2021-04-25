@@ -27,6 +27,9 @@ module.exports =  {
   // Delegate a ZCAP
   delegate: require('./delegate'),
 
+  // Invoke a delegable ZCAP
+  invokeDelegable: require('./invokeDelegable'),
+
   // Verify a ZCAP invocation
   verifyZcapInvocation: require('./verifyZcapInvocation'),
 
