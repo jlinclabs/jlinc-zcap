@@ -56,6 +56,19 @@ const delegated = zcap.delegate( invoker, parentId, delegator, caveats );
 
 ```
 
+Invoke a delegable ZCAP
+
+```js
+const token = zcap.invokeDelegable(invoker, delegable, action);
+// In this case the invoker is an object containing the DID and keys of
+// the invoker (the entity being delegated the delegable authority).
+//
+// The delegable argument must be a valid delegable ZCAP.
+//
+// The target MUST ascertain that the action argument is allowed 
+// by the delegable object's caveat array.
+```
+
 
 Invoke a delegated ZCAP
 
