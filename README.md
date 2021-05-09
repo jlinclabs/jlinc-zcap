@@ -90,8 +90,15 @@ const verified = zcap.verifyZcapInvocation(zcap);
 // Returns the delegator and invoker DIDs and parentCapability ID so they can be verified as unrevoked.
 ```
 
-Verify and cache a DID's keys
+Asynchronously retrieve and cache a DID's signing key
 
 ```js
-// TODO
+zcap.didServerUrl = 'http://localhost:5001';
+zcap.getSigningKey(did)
+  .then(function(response){...})
+  .catch(function(err){...});
+// Accepts a DID in the did:jlinc:xxx format.
+// Returns a promise which resolves to an object { signingKey: [base64 encoded public key] },
+// or a status object, e.g { status: 'not found' },
+// or an error.
 ```

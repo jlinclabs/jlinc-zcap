@@ -33,4 +33,7 @@ module.exports =  {
   // Verify a ZCAP invocation
   verifyZcapInvocation: require('./verifyZcapInvocation'),
 
+  // Retrieve a DID's signing public key
+  getSigningKey: require('./getSigningKey'),
+
 };
