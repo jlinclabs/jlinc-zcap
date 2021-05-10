@@ -32,7 +32,7 @@ describe('issueDelegable', function() {
 
       expect(delegableCapability.proof).to.be.an('array');
       expect(delegableCapability.proof[0]).to.be.an('object');
-      expect(Object.keys(delegableCapability.proof[0])).to.have.lengthOf(5);
+      expect(Object.keys(delegableCapability.proof[0])).to.have.lengthOf(6);
       expect(delegableCapability.proof[0].type).to.equal('Ed25519Signature2018');
       expect(delegableCapability.proof[0].publicKeyBase64).to.matchPattern(_.isB64);
       expect(delegableCapability.proof[0].proofPurpose).to.equal('capabilityDelegation');
