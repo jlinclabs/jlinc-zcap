@@ -19,6 +19,7 @@ describe('zcap', function() {
       createDelegatedProof:  _.isFunction,
       invokeDelegable:  _.isFunction,
       verifyZcapInvocation:  _.isFunction,
+      getSigningKey:  _.isFunction,
     });
   });
 });
