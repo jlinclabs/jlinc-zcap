@@ -11,7 +11,7 @@ module.exports = function createProof({ issuer, proofObj }) {
   const proof = {
     type: 'Ed25519Signature2018',
     publicKeyBase64: issuer.publicKey,
-    created: this.now,
+    created: this.now(),
     proofPurpose: 'capabilityDelegation',
     verificationMethod: issuer.did + '#signing',
     jws: detachedSig
