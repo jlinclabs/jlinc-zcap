@@ -8,7 +8,7 @@ describe('zcap', function() {
     expect(zcap).to.matchPattern({
       version,
       JlincZcapError: _.isFunction,
-      now: _.isFunction,
+      nowIso: _.isFunction,
       createNonce: _.isFunction,
       extractProof:  _.isFunction,
       validateProof:  _.isFunction,

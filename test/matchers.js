@@ -53,8 +53,8 @@ _.mixin({
   isIAT(target){
     return (
       _.isNumber(target) &&
-      target <= Date.now() &&
-      target > (Date.now() - 1000000)
+      target <= Date.nowIso() &&
+      target > (Date.nowIso() - 1000000)
     );
   },
 

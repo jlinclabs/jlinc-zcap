@@ -31,7 +31,7 @@ module.exports = function invokeDelegable(
     ['@context']: defaults.context.concat(defaults.additionalContexts),
     id: 'urn:uuid:' + uuid.v4(),
     action: action,
-    created:  this.now(),
+    created:  this.nowIso(),
     capability: delegable.id,
     invoker: invoker.did
   };

@@ -17,7 +17,7 @@ module.exports = function createDelegatedProof({ invoker, delegator, proofObj })
     {
       type: 'Ed25519Signature2018',
       publicKeyBase64: delegator.publicKey,
-      created: this.now(),
+      created: this.nowIso(),
       proofPurpose: 'capabilityDelegation',
       verificationMethod: delegator.did + '#signing',
       jws: delegatorDetachedSig
@@ -25,7 +25,7 @@ module.exports = function createDelegatedProof({ invoker, delegator, proofObj })
     {
       type: 'Ed25519Signature2018',
       publicKeyBase64: invoker.publicKey,
-      created: this.now(),
+      created: this.nowIso(),
       proofPurpose: 'capabilityInvocation',
       verificationMethod: invoker.did + '#signing',
       jws: invokerDetachedSig
