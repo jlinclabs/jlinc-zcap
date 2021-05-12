@@ -10,6 +10,7 @@ describe('zcap', function() {
       JlincZcapError: _.isFunction,
       nowIso: _.isFunction,
       createNonce: _.isFunction,
+      createUUID: _.isFunction,
       extractProof:  _.isFunction,
       validateProof:  _.isFunction,
       makeDetachedSig:  _.isFunction,

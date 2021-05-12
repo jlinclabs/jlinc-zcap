@@ -14,6 +14,7 @@ module.exports =  {
   JlincZcapError,
   // Utilities
   createNonce: require('./createNonce'),
+  createUUID: require('./createUUID'),
   nowIso: require('./nowIso'),
   createProof:  require('./createProof'),
   createDelegatedProof:  require('./createDelegatedProof'),
