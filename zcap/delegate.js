@@ -46,5 +46,5 @@ module.exports = function delegate(
   const proof = this.createDelegatedProof({ invoker, delegator, proofObj: capability });
   capability.proof = proof;
 
-  return JSON.stringify(capability);
+  return capability;
 };

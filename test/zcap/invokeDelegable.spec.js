@@ -9,7 +9,7 @@ describe('invokeDelegable', function() {
   context('when given a invoker, a delegable capability, and an action string', function(){
     it('should return a ZCAP invocation', function(){
       const invoker = generateActor();
-      const delegable = JSON.parse(zcap.issueDelegable(invoker.did, {caveat: ['authorization']}));
+      const delegable = zcap.issueDelegable(invoker.did, {caveat: ['authorization']});
 
       const token = zcap.invokeDelegable(invoker, delegable, 'authorization');
       expect(token).to.matchPattern(_.isJWT);
@@ -29,7 +29,7 @@ describe('invokeDelegable', function() {
     it('should throw error', function(){
       const invoker = generateActor();
       const wrongInvoker = generateActor();
-      const delegable = JSON.parse(zcap.issueDelegable(invoker.did, {caveat: ['authorization']}));
+      const delegable = zcap.issueDelegable(invoker.did, {caveat: ['authorization']});
 
       expect(() => {
         zcap.invokeDelegable(wrongInvoker, delegable, 'authorization');

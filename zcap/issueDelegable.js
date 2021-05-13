@@ -42,5 +42,5 @@ module.exports = function issueDelegable(
   const proof = this.createProof({ issuer: parentCapability.issuer, proofObj: capability });
   capability.proof = [proof];
 
-  return JSON.stringify(capability);
+  return capability;
 };

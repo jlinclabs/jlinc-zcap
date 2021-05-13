@@ -26,10 +26,8 @@ describe('delegate', function() {
       ];
 
       const delegableCapability = zcap.issueDelegable(delegator.did, parentCapability);
-      const result = zcap.delegate(invoker, delegableCapability.parentCapabilityId, delegator, caveats);
-      expect(result).to.be.a('string');
-      const delegatedCapability = JSON.parse(result);
-
+      const delegatedCapability = zcap.delegate(invoker, delegableCapability.parentCapabilityId, delegator, caveats);
+      
       expect(delegatedCapability).to.be.an('object');
       expect(Object.keys(delegatedCapability)).to.have.lengthOf(6);
       expect(delegatedCapability['@context'][0]).to.equal('https://w3id.org/security/v2');

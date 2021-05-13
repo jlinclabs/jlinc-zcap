@@ -18,9 +18,7 @@ describe('issueDelegable', function() {
         authorizationEndpoint: 'https://example.com/api/issue-zcap'
       };
 
-      const result = zcap.issueDelegable(invoker.did, parentCapability);
-      expect(result).to.be.a('string');
-      const delegableCapability = JSON.parse(result);
+      const delegableCapability = zcap.issueDelegable(invoker.did, parentCapability);
 
       expect(delegableCapability).to.be.an('object');
       expect(Object.keys(delegableCapability)).to.have.lengthOf(5);
