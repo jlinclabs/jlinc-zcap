@@ -22,7 +22,7 @@ describe('issueDelegable', function() {
 
       expect(delegableCapability).to.be.an('object');
       expect(Object.keys(delegableCapability)).to.have.lengthOf(5);
-      expect(delegableCapability['@context'][0]).to.equal('https://w3id.org/security/v2');
+      expect(delegableCapability['@context'][0]).to.equal('https://example.org/zcap/v1');
       expect(delegableCapability.id).to.matchPattern(_.isUUIDv4);
       expect(delegableCapability.target).to.equal('https://example.com/zcap-login');
       expect(delegableCapability.invoker).to.matchPattern(_.isDID);

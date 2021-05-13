@@ -27,10 +27,10 @@ describe('delegate', function() {
 
       const delegableCapability = zcap.issueDelegable(delegator.did, parentCapability);
       const delegatedCapability = zcap.delegate(invoker, delegableCapability.parentCapabilityId, delegator, caveats);
-      
+
       expect(delegatedCapability).to.be.an('object');
       expect(Object.keys(delegatedCapability)).to.have.lengthOf(6);
-      expect(delegatedCapability['@context'][0]).to.equal('https://w3id.org/security/v2');
+      expect(delegatedCapability['@context'][0]).to.equal('https://example.org/zcap/v1');
       expect(delegatedCapability.parentCapabilityId).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.id).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.invoker).to.equal(invoker.did);

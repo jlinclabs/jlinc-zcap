@@ -23,7 +23,7 @@
 
   ###############################################################
   # this is the most current basic context
-  context: ['https://w3id.org/security/v2']
+  context: ['https://example.org/zcap/v1']
   # additional contexts may be provided
   additionalContexts: []
 
