@@ -25,7 +25,7 @@ module.exports = function delegate(
    * @returns {string} A JSON object
    */
 
-  const defaults = hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
+  const defaults = this.defaults || hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
 
   if (delegator === undefined) {
     delegator = defaults.delegator;

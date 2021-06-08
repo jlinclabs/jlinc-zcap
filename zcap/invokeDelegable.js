@@ -26,7 +26,7 @@ module.exports = function invokeDelegable(
     throw new JlincZcapError(`The invoker DID ${invoker.did} must be the same as the delegable invoker DID ${delegable.invoker}`);
   }
 
-  const defaults = hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
+  const defaults = this.defaults || hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
   const invocation = {
     ['@context']: defaults.context.concat(defaults.additionalContexts),
     id: 'urn:uuid:' + uuid.v4(),
