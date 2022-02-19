@@ -70,6 +70,10 @@ _.mixin({
     return B64_REGEXP.test(target);
   },
 
+  isArray(target) {
+    return Array.isArray(target);
+  }
+
 });
 
 chai.Assertion.addMethod('aNonce', function(){
