@@ -1,14 +1,12 @@
 'use strict';
 
-const fs = require('fs');
-const hjson = require('hjson');
 const uuid = require('uuid');
 
 module.exports = function issueDelegable(
   invokerDid, parentCapability
 ){
   /**
-   * @param {object} parentCapability The caller must submit this object, or rely on hjson defaults.
+   * @param {object} parentCapability
    *
    * @param {string} parentCapability.apiEndpoint a URL
    * @param {object} parentCapability.issuer
@@ -21,22 +19,15 @@ module.exports = function issueDelegable(
    * @returns {string} A JSON object
    */
 
-  const defaults = this.defaults || hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
-
-  if (parentCapability === undefined) {
-    parentCapability = defaults.parentCapability;
-  } else {
-    // arguments, where present, override defaults
-    parentCapability = {...defaults.parentCapability, ...parentCapability};
-  }
 
   const capability = {};
-  capability['@context'] = defaults.context.concat(defaults.additionalContexts);
+  capability['@context'] = this.context;
   capability.id = 'urn:uuid:' + uuid.v4();
+  capability.parentCapabilityId = parentCapability.id;
   capability.target = parentCapability.target;
   capability.invoker = invokerDid;
-  if (parentCapability.caveat) {
-    capability.caveat = parentCapability.caveat;
+  if (parentCapability.caveats) {
+    capability.caveats = parentCapability.caveats;
   }
 
   const proof = this.createProof({ issuer: parentCapability.issuer, proofObj: capability });

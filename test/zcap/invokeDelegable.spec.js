@@ -4,12 +4,13 @@ const {
   generateActor,
 } = require('../helpers');
 const zcap = require('../../');
+const uuid = require('uuid');
 
 describe('invokeDelegable', function() {
   context('when given a invoker, a delegable capability, and an action string', function(){
     it('should return a ZCAP invocation', function(){
       const invoker = generateActor();
-      const delegable = zcap.issueDelegable(invoker.did, {caveat: ['authorization']});
+      const delegable = zcap.issueDelegable(invoker.did, makeFakeParent());
 
       const token = zcap.invokeDelegable(invoker, delegable, 'authorization');
       expect(token).to.matchPattern(_.isJWT);
@@ -29,7 +30,7 @@ describe('invokeDelegable', function() {
     it('should throw error', function(){
       const invoker = generateActor();
       const wrongInvoker = generateActor();
-      const delegable = zcap.issueDelegable(invoker.did, {caveat: ['authorization']});
+      const delegable = zcap.issueDelegable(invoker.did, makeFakeParent());
 
       expect(() => {
         zcap.invokeDelegable(wrongInvoker, delegable, 'authorization');
@@ -37,3 +38,12 @@ describe('invokeDelegable', function() {
     });
   });
 });
+
+const makeFakeParent = function() {
+  return {
+    target: 'https://example.com/zcap-login',
+    issuer: generateActor(),
+    id: 'urn:uuid:' + uuid.v4(),
+    authorizationEndpoint: 'https://example.com/api/issue-zcap'
+  };
+};

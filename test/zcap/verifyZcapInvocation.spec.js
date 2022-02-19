@@ -1,4 +1,5 @@
 'use strict';
+//TODO: redo this test to use "caveats" instead of "caveat"
 
 const zcap = require('../../zcap');
 const validZcap = {
@@ -44,7 +45,7 @@ describe('verifyZcapInvocation', function() {
       expect(result.parentCapabilityId).to.equal(validZcap.parentCapabilityId);
       expect(result.id).to.equal(validZcap.id);
       expect(result.invoker).to.equal(validZcap.invoker);
-      expect(result.caveats).to.deep.equal(validZcap.caveat);
+      expect(result.zcap.caveat).to.deep.equal(validZcap.caveat);
     });
   });
 

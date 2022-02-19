@@ -34,7 +34,7 @@ describe('delegate', function() {
       expect(delegatedCapability.parentCapabilityId).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.id).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.invoker).to.equal(invoker.did);
-      expect(delegatedCapability.caveat).to.deep.include(caveats[0]);
+      expect(delegatedCapability.caveats).to.deep.include(caveats[0]);
 
       expect(delegatedCapability.proof).to.be.an('array');
       expect(delegatedCapability.proof).to.have.lengthOf(2);

@@ -1,7 +1,5 @@
 'use strict';
 
-const fs = require('fs');
-const hjson = require('hjson');
 const uuid = require('uuid');
 
 module.exports = function delegate(
@@ -15,7 +13,7 @@ module.exports = function delegate(
    *
    * @param {string} parentId a unique string identifying a source capability
    *
-   * @param {object} delegator The caller must submit this object, or rely on hjson defaults.
+   * @param {object} delegator
    * @param {string} delegator.did reference to a JLINC DID signing key
    * @param {string} delegator.publicKey in Base64Url format.
    * @param {string} delegator.secretKey in Base64Url format.
@@ -25,22 +23,13 @@ module.exports = function delegate(
    * @returns {string} A JSON object
    */
 
-  const defaults = this.defaults || hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
-
-  if (delegator === undefined) {
-    delegator = defaults.delegator;
-  } else {
-    // arguments, where present, override defaults
-    delegator = {...defaults.delegator, ...delegator};
-  }
-
   const capability = {};
-  capability['@context'] = defaults.context.concat(defaults.additionalContexts);
-  capability.parentCapabilityId = defaults.parentCapability.id;
+  capability['@context'] = this.context;
+  capability.parentCapabilityId = parentId;
   capability.id = 'urn:uuid:' + uuid.v4();
   capability.invoker = invoker.did;
   if (caveats !== undefined) {
-    capability.caveat = caveats;
+    capability.caveats = caveats;
   }
 
   const proof = this.createDelegatedProof({ invoker, delegator, proofObj: capability });

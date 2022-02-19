@@ -1,8 +1,6 @@
 'use strict';
 
 const jwt  = require('@jlinc/jwt');
-const fs = require('fs');
-const hjson = require('hjson');
 const uuid = require('uuid');
 
 module.exports = function invokeDelegable(
@@ -26,9 +24,8 @@ module.exports = function invokeDelegable(
     throw new JlincZcapError(`The invoker DID ${invoker.did} must be the same as the delegable invoker DID ${delegable.invoker}`);
   }
 
-  const defaults = this.defaults || hjson.parse(fs.readFileSync('./defaults.hjson', 'utf8'));
   const invocation = {
-    ['@context']: defaults.context.concat(defaults.additionalContexts),
+    ['@context']: this.context,
     id: 'urn:uuid:' + uuid.v4(),
     action: action,
     created:  this.nowIso(),

@@ -27,11 +27,6 @@ const delegable = zcap.createDelegable( invokerDid, parentCapability );
 // this capability will operate against, as well as cryptographic material for
 // the granting authority.
 //
-// Part or all of the parentCapability object's values may be provided in a
-// defaults.hjson file -- see defaults-example.hjson
-//
-// If a parentCapability object is provided in the method arguments, the values of
-// any keys it includes will override the defaults.
 //
 // The proof is signed by the parentCapability granting authority's secret key.
 ```
@@ -47,8 +42,6 @@ const delegated = zcap.delegate( invoker, parentId, delegator, caveats );
 // The parentId is the ID of the delegable ZCAP object created by createDelegable.
 // The delegator is an object containing the DID and keys of the delegator.
 //
-// Part or all of the delegator object's values may be provided in a
-// defaults.hjson file -- see defaults-example.hjson
 
 // The caveats is an optional argument consisting of an array of caveat objects.
 //

@@ -35,8 +35,8 @@ module.exports = function verifyZcapInvocation(input) {
   } else {
     verified.parentCapabilityId = verified.zcap.id;
   }
-  if (verified.zcap.caveat) {
-    verified.caveats = verified.zcap.caveat;
+  if (verified.zcap.caveats) {
+    verified.caveats = verified.zcap.caveats;
   }
 
   if (Array.isArray(verified.zcap.proof)) {
