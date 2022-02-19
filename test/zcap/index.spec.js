@@ -7,6 +7,7 @@ describe('zcap', function() {
   it('should match this pattern', function(){
     expect(zcap).to.matchPattern({
       version,
+      context: _.isArray,
       JlincZcapError: _.isFunction,
       nowIso: _.isFunction,
       createNonce: _.isFunction,
@@ -21,6 +22,7 @@ describe('zcap', function() {
       invokeDelegable:  _.isFunction,
       verifyZcapInvocation:  _.isFunction,
       getSigningKey:  _.isFunction,
+      createParentCapability:  _.isFunction,
     });
   });
 });

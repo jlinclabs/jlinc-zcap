@@ -10,6 +10,7 @@ class JlincZcapError extends Error {
 
 module.exports =  {
   version: require('../package.json').version,
+  context: ['https://example.org/zcap/v1'],
   // Custom Errors
   JlincZcapError,
   // Utilities
@@ -22,19 +23,14 @@ module.exports =  {
   extractProof: require('./extractProof'),
   validateProof: require('./validateProof'),
 
-  // Issue a delegable ZCAP
-  issueDelegable: require('./issueDelegable'),
-
-  // Delegate a ZCAP
-  delegate: require('./delegate'),
-
-  // Invoke a delegable ZCAP
-  invokeDelegable: require('./invokeDelegable'),
-
-  // Verify a ZCAP invocation
-  verifyZcapInvocation: require('./verifyZcapInvocation'),
-
   // Retrieve a DID's signing public key
   getSigningKey: require('./getSigningKey'),
+
+  // Working methods
+  createParentCapability: require('./createParentCapability'),
+  issueDelegable: require('./issueDelegable'),
+  delegate: require('./delegate'),
+  invokeDelegable: require('./invokeDelegable'),
+  verifyZcapInvocation: require('./verifyZcapInvocation'),
 
 };
