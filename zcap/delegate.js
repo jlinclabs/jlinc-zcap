@@ -30,6 +30,8 @@ module.exports = function delegate(
   capability.invoker = invoker.did;
   if (caveats !== undefined) {
     capability.caveats = caveats;
+  } else {
+    capability.caveats = ['authorization'];
   }
 
   const proof = this.createDelegatedProof({ invoker, delegator, proofObj: capability });
