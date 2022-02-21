@@ -10,13 +10,14 @@ module.exports = function createParentCapability(
   * @param {string} issuer.did reference to a JLINC DID signing key
   * @param {string} issuer.publicKey in Base64Url format.
   * @param {string} issuer.secretKey in Base64Url format.
-   *
-   * @param {string} targetUri a URI string identifying the target of the capability
-   *
-   * @param {array}  caveats optional array of caveat objects
-   *
-   * @returns {object} a Parent Capability object
-   */
+  * @param {string} issuerUri a URI string identifying the API where the parent capability can be retrieved
+  *
+  * @param {string} targetUri a URI string identifying the target of the capability
+  *
+  * @param {array}  caveats optional array of caveat objects
+  *
+  * @returns {object} a Parent Capability object
+  */
 
   const {JlincZcapError} = this;
   if (
