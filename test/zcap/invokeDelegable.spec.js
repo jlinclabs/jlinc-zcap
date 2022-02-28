@@ -16,13 +16,27 @@ describe('invokeDelegable', function() {
       expect(token).to.matchPattern(_.isJWT);
 
       const invocation = zcap.verifyZcapInvocation(token);
-
-      expect(invocation).to.be.an('object');
-      expect(Object.keys(invocation)).to.have.lengthOf(5);
-      expect(invocation.verified).to.be.true;
-      expect(invocation.invoker).to.matchPattern(_.isDID);
-      expect(invocation.invoker).to.equal(invoker.did);
-      expect(invocation.parentCapabilityId).to.equal(invocation.zcap.id);
+      expect(invocation).to.matchPattern({
+        verified: true,
+        wrapper: {
+          key: _.isString,
+          keyId: _.isString,
+        },
+        zcap: {
+          '@context': zcap.context,
+          id: _.isAuthId,
+          action: 'authorization',
+          created: _.isDateString,
+          capability: _.isAuthId,
+          invoker: invoker.did,
+          pii: undefined,
+          proof: _.isObject,
+          parentCapabilityId: delegable.parentCapabilityId,
+        },
+        id: _.isAuthId,
+        invoker: invoker.did,
+        parentCapabilityId: delegable.parentCapabilityId,
+      });
     });
   });
 
