@@ -30,7 +30,9 @@ module.exports = function invokeDelegable(
     action: action,
     created:  this.nowIso(),
     capability: delegable.id,
-    invoker: invoker.did
+    invoker: invoker.did,
+    pii: delegable.pii,
+    parentCapabilityId: delegable.parentCapabilityId,
   };
 
   const proof = this.createProof({ issuer: invoker, proofObj: invocation });
