@@ -3,7 +3,7 @@
 const uuid = require('uuid');
 
 module.exports = function delegate(
-  invoker, parentId, delegator, caveats
+  invoker, parentId, delegator, caveats = ['authorization'], pii = {}
 ){
   /**
   * @param {object} invoker
@@ -28,11 +28,8 @@ module.exports = function delegate(
   capability.parentCapabilityId = parentId;
   capability.id = 'urn:uuid:' + uuid.v4();
   capability.invoker = invoker.did;
-  if (caveats !== undefined) {
-    capability.caveats = caveats;
-  } else {
-    capability.caveats = ['authorization'];
-  }
+  capability.caveats = caveats;
+  capability.pii = pii;
 
   const proof = this.createDelegatedProof({ invoker, delegator, proofObj: capability });
   capability.proof = proof;

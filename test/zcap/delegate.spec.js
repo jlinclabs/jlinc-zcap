@@ -29,7 +29,9 @@ describe('delegate', function() {
       const delegatedCapability = zcap.delegate(invoker, delegableCapability.parentCapabilityId, delegator, caveats);
 
       expect(delegatedCapability).to.be.an('object');
-      expect(Object.keys(delegatedCapability)).to.have.lengthOf(6);
+      expect(delegatedCapability).to.have.all.keys([
+        '@context', 'caveats', 'id', 'invoker', 'parentCapabilityId', 'pii', 'proof',
+      ]);
       expect(delegatedCapability['@context'][0]).to.equal('https://example.org/zcap/v1');
       expect(delegatedCapability.parentCapabilityId).to.matchPattern(_.isUUIDv4);
       expect(delegatedCapability.id).to.matchPattern(_.isUUIDv4);
